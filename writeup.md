@@ -36,7 +36,7 @@ My project includes the following files:
 * [**drive.py:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/drive.py) for driving the car in autonomous mode. I didn't make any changes here.
 * [**model.h5:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/model.h5) The trained convolutional neural network. 
 * [**writeup_report.md:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/writeup.md) This file. It's a summary of the results
-* [**run1.mp4**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/run1.mp4) Video of the car driving autonomously along the track
+* [**video.mp4**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/video.mp4) Video of the car driving autonomously along the track
 
 #### 2. Submission includes functional code
 
