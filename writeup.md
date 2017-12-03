@@ -1,3 +1,7 @@
+# **Hi Grader!**
+My writeup is here...
+[writeup.md](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/writeup.md)
+
 # **Behavioral Cloning** 
 
 ---
