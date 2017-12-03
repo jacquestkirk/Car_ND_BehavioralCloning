@@ -1,3 +1,8 @@
+# **Hi Grader!**
+My writeup is here...
+[writeup.md](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/writeup.md)
+
+
 # Behaviorial Cloning Project
 
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
