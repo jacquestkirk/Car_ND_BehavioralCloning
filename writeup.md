@@ -31,11 +31,12 @@ The goals / steps of this project are the following:
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
-* **model.py:** The script to create and train the model.
-* **imageGenerator.py:** A generator function that loads images into python in batches
-* **drive.py:** for driving the car in autonomous mode. I didn't make any changes here.
-* **model.h5:** The trained convolutional neural network. 
-* **writeup_report.md:** This file. It's a summary of the results
+* [**model.py:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/model.py) The script to create and train the model.
+* [**imageGenerator.py:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/imageGenerator.py) A generator function that loads images into python in batches
+* [**drive.py:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/drive.py) for driving the car in autonomous mode. I didn't make any changes here.
+* [**model.h5:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/model.h5) The trained convolutional neural network. 
+* [**writeup_report.md:**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/writeup.md) This file. It's a summary of the results
+* [**run1.mp4**](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/run1.mp4) Video of the car driving autonomously along the track
 
 #### 2. Submission includes functional code
 
@@ -109,7 +110,9 @@ My training and validation losses were very similar, which implies overfitting b
 
 I realized that it was having some problems getting over the bridge. The end of the bridge is not aligned with the center of the road. My network was having problems with this, so I recorded some extra data making this transition. 
 
-When I retrained my network, I realized that my car was drifting to the side. I hypothesized that it was because I added since I added extra right turns, but didn't drive the bridge backwards, so I did not have an equal amount of left turns. To combat this I augmented the training data with flips. I only flipped images where the steering angle was greater than some threshold since straignt driving will not change much between flips. I also wanted to represent straight driving less so that the car wouldn't have a bias towards driving straight. 
+![The bridge that caused problems, notice that the center of the bridge is not aligned with the center of the road](/BridgeToRoad.jpg)
+
+When I retrained my network, I realized that my car was drifting to the side. I hypothesized that it was because I added extra right turns, but didn't drive the bridge backwards, so I did not have an equal amount of left turns. To combat this I augmented the training data with flips. I only flipped images where the steering angle was greater than some threshold since straignt driving will not change much between flips. I also wanted to represent straight driving less so that the car wouldn't have a bias towards driving straight. 
 
 I took a look at my training and validation losses again. This time there was a wide discrepancy between training and validation. I added some dropouts and tweaked the dropout percentages optimizing the validation loss. 
 
@@ -141,12 +144,12 @@ Training and Validation sets consisted of the following:
 
 1) Drive a lap of the track forwards
 2) Drive a lap of the track backwards
-3) An extra forwards pass through the bridge
+3) An extra forward drive through the bridge
 4) Left, right, and center camera data. 
-5) Flipped images for left, right, and center camera when the absolute value of steering angle is greater than 0.75/ 
+5) Flipped images for left, right, and center camera when the absolute value of steering angle is greater than 0.75.
 
 
-Refer back to question 1 of "Model Architecture and Training Strategy" for the reasons behing these datasets. 
+Refer back to question 1 of "Model Architecture and Training Strategy" for the reasons behind these datasets. 
 
 I preprocessed the data by doing the following.
 1) Cropping
@@ -157,12 +160,15 @@ Refer back to question 2 of "Model Architecture and Training Strategy" for the r
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting and if I had too small of a dataset. I sued mean square error as my loss function since it steering angls is a continuous output. 
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting and if I had too small of a dataset. I used mean square error as my loss function since the steering angle is a continuous output. 
 
-I used 10 epochs. It did not take too long to runn so I used it as a starting point. I did not get to tweak this number before I got a working network. 
+I used 10 epochs. It did not take too long to run so I used it as a starting point. I did not get to tweak this number before I got a working network. 
 
 I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
 The results of the image are shown in the image below. 
+![](https://github.com/jacquestkirk/Car_ND_BehavioralCloning/blob/master/figure_1.jpeg)
+
+Allowing the simulator to run acts like the test data. But I would have liked to have had another similar test track, that the neural network has never seen before to act more like test data. Since I only have one track (the second is VERY different) I can't use an actual test set. 
 
 
